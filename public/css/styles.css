@@ -1,0 +1,24 @@
+@media (max-width: 576px) { 
+    h1{
+        color:red;
+    }
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.movie{
+    background-color: gray;
+    width: 250px;
+    height: 250px;
+}
+
+.movie img{
+    width: 100%;
+}
+footer{
+    background-color: black;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}

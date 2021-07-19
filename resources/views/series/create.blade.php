@@ -7,8 +7,12 @@
     <div class="row">
         <h1>Cadastrar Série</h1>
     </div>
-    <form action="/series" method="POST" class="form">
+    <form action="/series" method="POST" class="form" enctype="multipart/form-data">
     @csrf
+        <div class="form-group">
+            <label for="image">Imagem</label>
+            <input type="file" class="from-control-file" name="image" id="image">
+        </div>
         <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" class="form-control" name="name_serie" id="name_serie" placeholder="Digite o nome da série">

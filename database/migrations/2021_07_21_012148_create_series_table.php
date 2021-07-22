@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageToSeriesTable extends Migration
+class CreateSeriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class AddImageToSeriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('series', function (Blueprint $table) {
+        Schema::create('series', function (Blueprint $table) {
+            $table->id();
+            $table->string('name_serie');
             $table->string('image');
+            $table->text('sinopse');
+            $table->date('date_launch');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class AddImageToSeriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('series', function (Blueprint $table) {
-            $table->dropColumn('image');
-        });
+        Schema::dropIfExists('series');
     }
 }

@@ -19,7 +19,13 @@
         </div>
         <div class="form-group">
             <label for="category">Categoria</label>
-            <input type="text" class="form-control" name="category" id="categoy" placeholder="Digite a categoria da série">
+            <select name="category" id="" class="form-control"> 
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+            @endforeach
+            </select>
+
+            
         </div>
         <div class="form-group">
             <label for="sinopse">sinopse</label>
@@ -31,6 +37,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Criar</button>
     </form>
-    
 </div>
+
 @endsection

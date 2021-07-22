@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SerieController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,4 +19,9 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/series', [SerieController::class, 'series']);
 Route::get('/series/create', [SerieController::class, 'create']);
+Route::get('/series/{id}', [SerieController::class, 'show']);
 Route::post('/series', [SerieController::class, 'store']);
+
+Route::get('/category/create', [CategoryController::class, 'create']);
+Route::post('/category', [CategoryController::class, 'store']);
+

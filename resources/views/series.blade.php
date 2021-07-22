@@ -16,32 +16,41 @@
 $count = $series->count();
 $ids = [];
 $series_recentes = array();
-for($j = 0; $j< 10; $j++){
-    $maior_data = $series[0];
-    for ($i=0; $i<$count;$i++){
-        if(in_array($series[$i]->id, $ids) != 1){
-            if ($series[$i]->date_launch >= $maior_data->date_launch){
-                $maior_data = $series[$i];  
-            }
+if ($count > 0 ){
+    for($j = 0; $j< 10; $j++){
+        if ($j == $count){
+            break;
         }
+        $maior_data = $series[1];
+        for ($i=0; $i<$count;$i++){
+            if(in_array($series[$i]->id, $ids) != 1){
+                if ($series[$i]->date_launch >= $maior_data->date_launch){
+                    $maior_data = $series[$i];  
+                   
+                }
+            }
+            
+        }
+        $ids[] = $maior_data->id;
+        array_push($series_recentes, $maior_data);   
     }
-    if ($j > $count){
-        break;
-    }
-    $ids[] = $maior_data->id;
-    array_push($series_recentes, $maior_data);   
+    
+
 }
 
 @endphp
-    <div class="row">
+    <div class="row" style="justify-content:center;">
+@if ($count > 0)
     @if ($count < 6)
+    <div class="row">
     @foreach ($series_recentes as $serie_recente)
-        <div class="col">
-            <div class="card" style="background-color:black; width:20rem;">
-            <img src="/img/series/{{ $serie_recente->image }}" alt="" class="img"> {{-- Concatenando o nome do arquivo com o nome da imagem --}}
-                <a href="" style="color: white;"><h2 class="card-title">{{ $serie_recente->name_serie }}</h2></
+            <div class="col">
+                <div class="card" style="background-color:black; width:20rem;">
+                <img src="/img/series/{{ $serie_recente->image }}" alt="" class="img"> {{-- Concatenando o nome do arquivo com o nome da imagem --}}
+                    <a href="/series/{{ $serie_recente->id }}" style="color: white;"><h2 class="card-title">{{ $serie_recente->name_serie }}</h2></
+                </div>
             </div>
-        </div>
+    </div>
     @endforeach
     @else
     {{-- Inicio do carousel --}}
@@ -54,7 +63,7 @@ for($j = 0; $j< 10; $j++){
                 <div class="col">
                     <div class="card" style="background-color:black; width:20rem; height: 30rem;">
                     <img src="/img/series/{{ $series_recentes[$i]->image }}" alt="" class="img"> {{-- Concatenando o nome do arquivo com o nome da imagem --}} 
-                        <a href="" style="color: white;" ><h2 class="card-title" style=" background: black;">{{ $series_recentes[$i]->name_serie }}</h2></a>
+                        <a href="/series/{{ $series_recentes[$i]->id }}" style="color: white;" ><h2 class="card-title" style=" background: black;">{{ $series_recentes[$i]->name_serie }}</h2></a>
                     </div>
                 </div>
             @endfor
@@ -66,7 +75,7 @@ for($j = 0; $j< 10; $j++){
                 <div class="col">
                     <div class="card" style="background-color:black; width:20rem; height: 30rem;">
                     <img src="/img/series/{{ $series_recentes[$i]->image }}" alt="" class="img"> {{-- Concatenando o nome do arquivo com o nome da imagem --}}
-                        <a href="" style="color: white;"><h2 class="card-title">{{ $series_recentes[$i]->name_serie }}</h2></a>
+                        <a href="/series/{{ $series_recentes[$i]->id }}" style="color: white;"><h2 class="card-title">{{ $series_recentes[$i]->name_serie }}</h2></a>
                     </div>
                 </div>
             @endfor
@@ -84,8 +93,7 @@ for($j = 0; $j< 10; $j++){
     </div>
     {{--Fim do carousel--}}
 @endif
-
+@endif
 </div>
-<br>
 </div>
 @endsection

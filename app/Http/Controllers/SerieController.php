@@ -44,4 +44,16 @@ class SerieController extends Controller
 
         return view('series.show', ['serie'=>$serie]);
     }
+
+    public function edit($id){
+        $serie = Serie::findOrFail($id);
+        $categories = Category::all();
+        return view('series.edit', ['serie'=>$serie], ['categories'=>$categories]);
+    }
+
+    public function update(Request $request){
+        Serie::findOrFail($request->id)->update($request->all());
+
+        return redirect('/series')->with('msg', 'Serie editada com sucesso!');
+    }
 }

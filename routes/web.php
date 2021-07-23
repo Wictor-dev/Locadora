@@ -21,7 +21,8 @@ Route::get('/series', [SerieController::class, 'series']);
 Route::get('/series/create', [SerieController::class, 'create']);
 Route::get('/series/{id}', [SerieController::class, 'show']);
 Route::post('/series', [SerieController::class, 'store']);
-
+Route::get('/series/edit/{id}',[SerieController::class, 'edit']);
+Route::put('/series/update/{id}', [SerieController::class, 'update']);
 Route::get('/category/create', [CategoryController::class, 'create']);
 Route::post('/category', [CategoryController::class, 'store']);
 

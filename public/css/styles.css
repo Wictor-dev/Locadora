@@ -48,6 +48,19 @@ div.main{
     object-fit: fill;
 }
 
+.img-show{
+    margin: auto;
+    background-color: black;
+    padding-bottom: 5px;
+}
+
+.img-preview{
+    width: 100px;
+    height: 100px;
+}
+.row-show-img{
+    background-color: black;
+}
 #image-container{
     padding:10px;
     height: 600px;

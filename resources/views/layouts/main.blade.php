@@ -23,7 +23,12 @@
                 </ul>
             </div>      
         </nav>
+        <main>
+            @if (session('msg'))
+                <p class="msg">{{ session('msg') }}</p>
+            @endif
             @yield('content') <!-- Recebe o conteúdo dinamicamente -->
+        </main>
         <footer class="footer">
             <div>
             © 2021 Copyright: Netflix

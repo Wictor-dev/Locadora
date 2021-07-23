@@ -68,3 +68,10 @@ div.main{
 #image-container img{
     height: 100%;
 }
+
+.msg{
+    background-color:rgb(30, 59, 0);
+    color: green;
+    width: 100%;
+    text-align: center;
+}

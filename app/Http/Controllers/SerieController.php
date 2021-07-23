@@ -36,7 +36,7 @@ class SerieController extends Controller
         }
         $serie->save();
         $serie->categories()->attach($request->category);
-        return redirect('/series');
+        return redirect('/series')->with('msg','Série criada com sucesso!');
     }
 
     public function show($id){
@@ -55,5 +55,10 @@ class SerieController extends Controller
         Serie::findOrFail($request->id)->update($request->all());
 
         return redirect('/series')->with('msg', 'Serie editada com sucesso!');
+    }
+
+    public function destroy($id){
+        Serie::findOrFail($id)->delete();
+        return redirect('/series')->with('msg','Serie excluída com sucesso!');
     }
 }

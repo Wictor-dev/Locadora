@@ -20,7 +20,12 @@
                         {{ $category->name_category }}
                     @endforeach
                     </p>
-                    <a href="/series/edit/{{ $serie->id }}" class="btn edit-btn">Editar</a>
+                    <a href="/series/edit/{{ $serie->id }}" class="btn btn-info edit-btn">Editar</a>
+                    <form action="/series/{{ $serie->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger delete-btn">Deletar</button>
+                    </form>
             </div>
         </div>
         

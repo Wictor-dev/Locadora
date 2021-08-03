@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Serie;
 use App\Category;
+use App\Episode;
 class SerieController extends Controller
 {
     public function series() {
@@ -23,6 +24,7 @@ class SerieController extends Controller
 
         $serie->name_serie = $request->name_serie;
         $serie->sinopse = $request->sinopse;
+        $serie->seasons = $request->seasons;
         $serie->date_launch = $request->date_launch;
         
         // Upload de imagem
@@ -41,13 +43,14 @@ class SerieController extends Controller
 
     public function show($id){
         $serie = Serie::findOrFail($id);
-
-        return view('series.show', ['serie'=>$serie]);
+        $episodes = Episode::all();
+        return view('series.show', ['serie'=>$serie], ['episodes'=>$episodes]);
     }
 
     public function edit($id){
         $serie = Serie::findOrFail($id);
         $categories = Category::all();
+        
         return view('series.edit', ['serie'=>$serie], ['categories'=>$categories]);
     }
 

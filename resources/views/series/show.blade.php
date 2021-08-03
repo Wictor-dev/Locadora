@@ -28,6 +28,23 @@
                     </form>
             </div>
         </div>
+        <div class='row'>
+            <div class="col">
+                <a href="/episodes/create" class="btn btn-primary" role="button">Cadastrar Episódio</a>
+            </div>
+        </div>
+        <div class='row'>
+            @for ($i=1; $i<= $serie->seasons; $i ++)
+            <div class="col">
+                <p> Temporada {{ $i }}</p>
+                @foreach ($serie->episodes as $episode)
+                    @if ($episode->season == $i)
+                        <p>{{$episode->name_episode}}</p>
+                    @endif
+                @endforeach 
+            </div>
+            @endfor  
+        </div>
         
 
 @endsection

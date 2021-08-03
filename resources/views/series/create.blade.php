@@ -28,8 +28,12 @@
             
         </div>
         <div class="form-group">
-            <label for="sinopse">sinopse</label>
+            <label for="sinopse">Sinopse</label>
             <textarea class="form-control" name="sinopse" id="sinopse" cols="30" rows="10" placeholder="Digite a sinopse da série"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="seasons">Temporadas</label>
+            <input type="text" class="form-control" name="seasons" id="seasons" placeholder="Digite  o número de temporadas">
         </div>
         <div class="form-group">
             <label for="dateLaunch">Data de lançamento</label>

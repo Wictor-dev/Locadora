@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','series')
+@section('title','Series')
 
 @section('content')
 <div class="container-fluid">
@@ -21,7 +21,7 @@ if ($count > 0 ){
         if ($j == $count){
             break;
         }
-        $maior_data = $series[1];
+        $maior_data = $series[0];
         for ($i=0; $i<$count;$i++){
             if(in_array($series[$i]->id, $ids) != 1){
                 if ($series[$i]->date_launch >= $maior_data->date_launch){

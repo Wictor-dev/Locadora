@@ -10,4 +10,8 @@ class Serie extends Model
     public function categories(){
         return $this->belongsToMany('App\Category');
     }
+
+    public function episodes(){
+        return $this->belongsToMany('App\Episode');
+    }
 }

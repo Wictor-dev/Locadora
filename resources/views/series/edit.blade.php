@@ -34,6 +34,10 @@
             <textarea class="form-control" name="sinopse" id="sinopse" cols="30" rows="10" placeholder="Digite a sinopse da série">{{ $serie->sinopse }}</textarea>
         </div>
         <div class="form-group">
+            <label for="seasons">Temporadas</label>
+            <input type="text" class="form-control" name="seasons" id="seasons" placeholder="Digite  o número de temporadas" value="{{ $serie->seasons }}">
+        </div>
+        <div class="form-group">
             <label for="dateLaunch">Data de lançamento</label>
             <input type="date" class="form-control" name="date_launch" id="date_launch" placeholder="Digite a data de lançamento da série" value="{{ $serie->date_launch }}">
         </div>
